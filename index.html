@@ -1,41 +1,178 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <title>Jeev Prayaga</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://kit.fontawesome.com/edb2f9c366.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="./assets/favicon.png" sizes="96x96">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <div class="page-container">
-      <div class="img-container">
-        <img src="./assets/portrait_animated.svg" alt="">
-        <div class="icons-container">
-          <a href="https://www.linkedin.com/in/jeevprayaga" class="button"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-          <a href="https://github.com/jeevp" class="button"><i class="fab fa-github"></i> GitHub</a>
-          <a href="./assets/jeev_prayaga_resume.pdf" class="button"><i class="fas fa-file"></i> Resume</a>
-        </div>
-      </div>
-      <div class="text-container">
-        <h1>Hi, I'm Jeev!</h1>
-        <h3>I’m currently a second-year computer science student at Grinnell College.</h3>
-        <p class="headline">Here's some stuff I've been working on:</p>
-        <ul>
-          <li>
-            <a href="https://scrabble.jeev.me" class="project_name">Scrabble</a>
-            <p class="description">Multiplayer Scrabble game built with HTML/CSS, Vue.js, & Firebase in collaboration with <a class="link" href="https://gyan.biz/">Gyan</a>.
-            </p>
-          </li>
-          <li>
-            <a href="https://mastermind.jeev.me" class="project_name">Mastermind</a>
-            <p class="description">Adaptation of the classic Mastermind board game built with HTML/CSS & Vue.js</p>
-          </li>
-          <li>
-            <a href="https://erasure.jeev.me" class="project_name">Erasure</a>
-            <p class="description">Erasure poetry generator built with HTML/CSS & JavaScript</p>
-          </li>
-        </ul>
+    <div class="content-container" id="app" >
+      <div class="column-container">
+        <nav class="hidden">
+          <div class="external-links">
+            <a href="https://www.linkedin.com/in/jeevprayaga" class="arrow-link" target="_blank">
+              <span>LinkedIn</span>
+              <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+            </a>
+            <a href="https://github.com/jeevp" class="arrow-link" target="_blank">
+              <div class="span">GitHub</div>
+              <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+            <a href="./assets/jeev_prayaga_resume.pdf" class="arrow-link" target="_blank">
+              <div class="span">Resume</div>
+              <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+            </a>
+            <!-- <a href="./assets/jeev_prayaga_resume.pdf" class="arrow-link" target="_blank">
+              <div class="span">Art & Design</div>
+              <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+            </a> -->
+          </div>
+          <div class="alt-portrait"></div>
+        </nav>
+        <main>
+          <header>
+            <h2>Hi, I'm 
+              <span
+                class="text-emphasis"
+                @mouseover="imgHover = true"
+                @mouseleave="imgHover = false"
+              >
+                Jeev!
+              </span>
+            </h2>
+            <h2>
+              I’m entering my third year at Grinnell College, where I study computer science.
+            </h2>
+            <h2>
+              I’m passionate about using code, writing, art, and design to make a positive social impact.
+            </h2>
+          </header>
+          <h3 class="line">Some things I've made recently:</h3>
+          <ul class="featured">
+            <li
+              v-for="project in featuredProjects"
+              @mouseover="currentProject = project"
+              @mouseleave="currentProject = null"
+            >
+              <div class="project-title-container">
+                <a :href="project.title.url" class="project-name link-slideup" target="_blank">
+                  {{ project.title.text }}
+                </a>
+                <div class="tag-group">
+                  <span class="tag" v-for="tag in project.tags">{{ tag }}</span>
+                </div>
+              </div>
+              <p class="description" v-html="project.description"></p>
+            </li>
+          </ul>
+        </main>
+        <aside>
+          <div class="aside-content">
+            <div
+              class="portrait"
+              @mouseover="imgHover = true"
+              @mouseleave="imgHover = false"
+            >
+              <div class="frame" :class="imgHover || imgSource ? 'animated' : ''"></div>
+              <img :src="imgSource" alt="" :class="{ animated: imgSource}">
+              <div class="svg-container">
+                <svg :class="{ animated: imgHover}" viewBox="0 0 409 420" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+                    <title>Illustration of Jeev</title>
+                    <desc>Created with Sketch.</desc>
+                    <defs>
+                        <path d="M46,389.570979 L46,32.955378 L221.892507,20.4 L250,130.8" id="path-1"></path>
+                        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="204" height="369.170979" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <path d="M138.4,292.8 L295.6,292.8 L313.620608,403.2 L102.4,403.2 L138.4,292.8 Z" id="path-3"></path>
+                        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="211.220608" height="110.4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <path d="M405.142312,358 L280,358 L280,22.7872635 L330.663756,22.7872635" id="path-5"></path>
+                        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="125.142312" height="335.212737" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                    </defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Group-7" transform="translate(3.000000, 3.000000)">
+                            <use id="Rectangle-3" stroke="#000000" mask="url(#mask-2)" stroke-width="10" stroke-dasharray="2,4" xlink:href="#path-1"></use>
+                            <use id="Rectangle-2" stroke="#000000" mask="url(#mask-4)" stroke-width="10" stroke-linecap="round" stroke-dasharray="1.2" transform="translate(208.010304, 348.000000) scale(-1, 1) translate(-208.010304, -348.000000) " xlink:href="#path-3"></use>
+                            <path d="M176.697701,193.2 L97.6,414 L268.340156,408.402549 L268.340156,264.518089 L176.697701,193.2 Z" id="Path-14" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M79.6,228 C79.6,284.333044 125.266956,330 181.6,330 C237.933044,330 283.6,284.333044 283.6,228" id="Oval-11" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="11.19999980926514"></path>
+                            <path d="M133,257 C139.238827,267.207554 154.938047,274 182,274 C209.061953,274 226.002191,267.570212 231,257" id="Oval-11" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <use id="Rectangle-3" stroke="#000000" mask="url(#mask-6)" stroke-width="10" stroke-linecap="round" stroke-dasharray="1.2" xlink:href="#path-5"></use>
+                            <path d="M71.2,0 C71.2,21.2077344 120.627764,38.4 181.6,38.4 C242.572236,38.4 292,21.2077344 292,0" id="Oval-11-Copy" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2" transform="translate(181.600000, 19.200000) scale(1, -1) translate(-181.600000, -19.200000) "></path>
+                            <path d="M71.2,38.4 C71.2,17.8550073 127.880751,1.2 197.8,1.2 C267.719249,1.2 324.4,17.8550073 324.4,38.4" id="Oval-11-Copy-2" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2" transform="translate(197.800000, 19.800000) scale(1, -1) translate(-197.800000, -19.800000) "></path>
+                            <path d="M0,195.2 C0,174.655007 83.2750365,158 186,158 C288.724963,158 372,174.655007 372,195.2" id="Oval-11-Copy-2" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="91.19999694824219,14" transform="translate(186.000000, 176.600000) scale(1, -1) translate(-186.000000, -176.600000) "></path>
+                            <path d="M0,395.2 C0,374.655007 83.2750365,358 186,358 C288.724963,358 372,374.655007 372,395.2" id="Oval-11-Copy-2" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M248.540484,142.3 C261.478854,142.3 273.192348,136.85 283.680969,125.95 C273.192348,115.05 261.478854,109.6 248.540484,109.6 C235.602115,109.6 223.888621,115.05 213.4,125.95 C223.888621,136.85 235.602115,142.3 248.540484,142.3 Z" id="Oval-8-Copy-5" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M248,138 C254.627417,138 260,132.627417 260,126 C260,119.372583 254.627417,114 248,114 C241.372583,114 236,119.372583 236,126 C236,132.627417 241.372583,138 248,138 Z" id="Oval-13" stroke="#000000" stroke-width="5" fill="#000000" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M110,138 C116.627417,138 122,132.627417 122,126 C122,119.372583 116.627417,114 110,114 C103.372583,114 98,119.372583 98,126 C98,132.627417 103.372583,138 110,138 Z" id="Oval-13-Copy-2" stroke="#000000" stroke-width="5" fill="#000000" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M108.4,166.5 C132.258701,166.5 151.6,149.531592 151.6,128.6 C151.6,107.668408 132.258701,90.7 108.4,90.7 C84.5412988,90.7 65.2,107.668408 65.2,128.6 C65.2,149.531592 84.5412988,166.5 108.4,166.5 Z" id="Oval-10" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2" transform="translate(108.400000, 128.600000) scale(-1, 1) translate(-108.400000, -128.600000) "></path>
+                            <path d="M246.2,171.4 C270.058701,171.4 289.4,152.058701 289.4,128.2 C289.4,104.341299 270.058701,97 246.2,97 C222.341299,97 203,104.341299 203,128.2 C203,152.058701 222.341299,171.4 246.2,171.4 Z" id="Oval-10-Copy-2" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2" transform="translate(246.200000, 134.200000) scale(-1, 1) translate(-246.200000, -134.200000) "></path>
+                            <path d="M174.4,97.2 L154,219.6 L195.701677,219.6" id="Path-9" stroke="#000000" stroke-width="10" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M202.062284,133.8 C202.062284,118.888312 189.960029,106.8 175.031142,106.8 C160.102254,106.8 148,118.888312 148,133.8" id="Oval-10-Copy" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M277.6,96 L331.6,109.2" id="Path-11" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M74.8,102 L40,139.2" id="Path-11" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <path d="M76.5,76.5 L300,67.6" id="Path-13" stroke="#000000" stroke-width="5" stroke-dasharray="49.20000076293945,17"></path>
+                            <rect id="Rectangle-6" stroke="#000000" stroke-width="10" x="79.8" y="111.8" width="59.6" height="32" rx="16"></rect>
+                            <path d="M294.4,340.759977 L305.203308,169.2 L340.664731,336.344351" id="Path-15" stroke="#000000" stroke-width="5" stroke-linecap="square" stroke-dasharray="7.199999809265137,9"></path>
+                            <path d="M13.2,350.162628 L170.3,293.7" id="Path-16" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.2"></path>
+                            <text id="}" font-family="Inter-Regular, Inter" font-size="144" font-weight="normal" fill="#000000">
+                                <tspan x="306" y="193">}</tspan>
+                            </text>
+                            <text id="[" font-family="Avenir-Heavy, Avenir" font-size="114" font-weight="600" fill="#000000">
+                                <tspan x="0" y="234">[</tspan>
+                            </text>
+                            <text id="*" font-family="Inter-Bold, Inter" font-size="114" font-weight="bold" fill="#000000">
+                                <tspan x="17" y="453">*</tspan>
+                            </text>
+                            <text id="^" font-family="Inter-Bold, Inter" font-size="114" font-weight="bold" fill="#000000">
+                                <tspan x="300" y="448">^</tspan>
+                            </text>
+                            <text id="." font-family="Inter-Bold, Inter" font-size="114" font-weight="bold" fill="#000000">
+                                <tspan x="62" y="215">.</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </svg>
+              </div>
+            </div>
+            <div class="external-links">
+              <a href="https://www.linkedin.com/in/jeevprayaga" class="arrow-link" target="_blank">
+                <span>LinkedIn</span>
+                <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+              </a>
+              <a href="https://github.com/jeevp" class="arrow-link" target="_blank">
+                <div class="span">GitHub</div>
+                <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+              <a href="./assets/jeev_prayaga_resume.pdf" class="arrow-link" target="_blank">
+                <div class="span">Resume</div>
+                <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+              </a>
+              <!-- <a href="./assets/jeev_prayaga_resume.pdf" class="arrow-link" target="_blank">
+                <div class="span">Art & Design</div>
+                <img draggable="false" class="arrow" src="assets/right_arrow.svg">
+              </a> -->
+            </div> 
+            <footer>
+              <span>&copy; 2020 Jeev Prayaga</span>
+              <button @click="toggleDarkMode" id="dark-mode-toggle">
+                <i class="material-icons" v-if="darkMode">
+                  wb_sunny
+                </i>
+                <i class="material-icons" v-else>
+                  nights_stay
+                </i>
+              </button>
+            </footer> 
+          </div>
+        </aside>
       </div>
     </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/main.js"></script>
   </body>
 </html>
