@@ -5,6 +5,7 @@ var app = new Vue({
         darkMode: false,
         imgHover: false,
         currentProject: null,
+        placeholder: 'assets/invisible_square.png',
         featuredProjects: [
             {
                 title: {
@@ -81,7 +82,7 @@ var app = new Vue({
                 return this.currentProject.image
             }
             else {
-                return 'assets/invisible_square.png'
+                return this.placeholder
             }
         }
     },
