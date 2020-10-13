@@ -81,7 +81,7 @@ var app = new Vue({
                 return this.currentProject.image
             }
             else {
-                return ''
+                return 'assets/invisible_square.png'
             }
         }
     },
