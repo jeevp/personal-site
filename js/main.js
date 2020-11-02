@@ -13,8 +13,8 @@ var app = new Vue({
                     url: 'https://github.com/jeevp/sloth'
                 },
                 description:
-                    `A Spotify-powered Mac app that generates interval workouts to
-                    the tune of a song.`,
+                    `A Mac application that generates short interval workouts to
+                    synchronized with a song. Built in Electron using the Spotify API.`,
                 tags: ['Electron', 'Vue', 'JS'],
                 image: 'assets/sloth.png'
             },
@@ -37,20 +37,20 @@ var app = new Vue({
                     url: 'https://github.com/jeevp/tuneup'
                 },
                 description:
-                    `Song quiz Android app built with Spotify Web Player API 
+                    `Android app to discover new music through song-based quizzes. Built with Spotify API 
                     and Android Studio.`,
                 tags: ['Java', 'API'],
                 image: 'assets/tuneup.svg'
             },
             {
                 title: {
-                    text: 'LitMap',
-                    url: 'https://litmap.jeev.me'
+                    text: 'Litmap',
+                    url: 'https://litmap-2-gj4gzk4w8.vercel.app/'
                 },
                 description:
-                    `Web application to map locations in a document built with NLTK 
-                    and StanfordNER.`,
-                tags: ['Python', 'JS', 'HTML', 'CSS'],
+                    `Web application to visualize the locations mentioned in a document. 
+                    Built using SpaCy, the Google Maps Geocoding API, and the Mapbox API.`,
+                tags: ['Flask', 'Vue', 'HTML', 'CSS'],
                 image: 'assets/litmap.png'
             },
             {
@@ -59,8 +59,8 @@ var app = new Vue({
                     url: 'https://scrabble.jeev.me'
                 },
                 description:
-                    `Multiplayer Scrabble game built in collaboration with
-                    <a href="https://gyan.biz" target="_blank">Gyan</a>`,
+                    `Online multiplayer Scrabble game built in collaboration with
+                    <a href="https://gyan.biz" target="_blank">Gyan</a> using Vue and Firebase.`,
                 tags: ['JS', 'HTML', 'CSS'],
                 image: 'assets/rabble.png'
             },
@@ -70,7 +70,7 @@ var app = new Vue({
                     url: 'https://erasure.jeev.me'
                 },
                 description:
-                    `Erasure poetry generator built with HTML/CSS & JavaScript.`,
+                    `Simple web application to generate erasure poetry. Built using the Compromise JS library.`,
                 tags: ['JS', 'HTML', 'CSS'],
                 image: 'assets/erasure.png'
             },
