@@ -9,6 +9,26 @@ var app = new Vue({
         featuredProjects: [
             {
                 title: {
+                    text: 'Tracey',
+                    url: 'https://svg-tracey.herokuapp.com/'
+                },
+                description:
+                    `An online tool to transform raster images into SVG line art. Built using Flask, the OpenCV Python library, Vue and Heroku.`,
+                tags: ['Python', 'Flask', 'Vue'],
+                image: 'assets/tracey.png'
+            },
+            {
+                title: {
+                    text: 'Who Pays Technical Writers',
+                    url: 'https://whopaystechnicalwriters.com/'
+                },
+                description:
+                    `Designed/developed the frontend of a curated collection of active publishers, publications, and agencies that pay technical writers.`,
+                tags: ['JS', 'HTML', 'Bootstrap'],
+                image: 'assets/wptw.png'
+            },
+            {
+                title: {
                     text: 'Sloth',
                     url: 'https://github.com/jeevp/sloth'
                 },
